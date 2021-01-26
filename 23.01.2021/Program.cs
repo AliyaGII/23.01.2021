@@ -27,7 +27,7 @@ namespace _23._01._2021
             Console.WriteLine("Введите второе число");
             int B = Convert.ToInt32(Console.ReadLine());
             for (int i = A + 1 % 2 == 1 ? A + 1 : A + 2; i < B; i = i + 2)
-                Console.Write( i );
+                Console.Write(i);
             Console.WriteLine();
             Console.WriteLine();
 
@@ -109,8 +109,7 @@ namespace _23._01._2021
 
             //Задание 1.3
 
-            double init = 1000, 
-            sum = 1000;
+            double init = 1000, sum1 = 1000;
             int k = 0;
 
             wrong_input:
@@ -126,15 +125,15 @@ namespace _23._01._2021
 
             if (P != 0)
             {
-                while (sum < 1100)
+                while (sum1 < 1100)
                 {
-                    sum += (init * P) / 100;
+                    sum1 += (init * P) / 100;
                     k++;
                 }
                 string months;
                 if (k == 1)
                 {
-                    month = "месяц";
+                    months = "месяц";
                 }
                 else if (k == 2 || k == 3 || k == 4)
                 {
@@ -146,28 +145,29 @@ namespace _23._01._2021
                 }
                 Console.WriteLine($"\nРазмер вклада превысит 1100 руб. за {k} {months}");
                 Console.WriteLine($"Итоговый размер вклада: {s} руб.\n");
+            }
 
 
 
-                //Задание 2.1
+            //Задание 2.1
 
-                Console.Write("Введите размер массива: ");
+            Console.Write("Введите размер массива: ");
                 int N = Convert.ToInt32(Console.ReadLine());
                 int[] arr = new int[N];
                 for (int i = 0; i < arr.Length; i++)
                 {
-                    dz2_z1_arr[i] = i + 1;
+                    arr[i] = i + 1;
                 }
                 int max = arr[0];
                 int min = arr[0];
-                int sum = arr[0];
+                int sum2 = arr[0];
                 for (int i = 1; i < arr.Length; i++)
                 {
                     max = Math.Max(max, arr[i]);
                     min = Math.Min(min, arr[i]);
                     sum += arr[i];
                 }
-                double aver = Convert.ToDouble(sum) / Convert.ToDouble(arr.Length);
+                double aver = Convert.ToDouble(sum2) / Convert.ToDouble(arr.Length);
                 int cnt = 0;
                 for (int i = 0; i < arr.Length; i++)
                 {
@@ -179,7 +179,7 @@ namespace _23._01._2021
 
                 Console.WriteLine($"Наибольшее значение массива: {max}");
                 Console.WriteLine($"Наименьшее значение массива: {min}");
-                Console.WriteLine($"Общая сумма всех элементов: {sum}");
+                Console.WriteLine($"Общая сумма всех элементов: {sum2}");
                 Console.WriteLine($"Среднее арифметическое всех элементов: {aver}");
                 if (cnt > 0)
                 {
@@ -196,34 +196,95 @@ namespace _23._01._2021
                 else
                 {
                     Console.WriteLine("В массиве нет нечетных элементов\n");
-
-
-                    //Задание 2.2
-
-                    int[] arr = new int[5];
-            int l;
-
-            Console.WriteLine("Enter five elements of the array: ");
-            for (l = 0; l < 5; l++)
-            {
-                arr[l] = Convert.ToInt32(Console.ReadLine());
             }
 
-            Console.WriteLine("\nYour array");
-            for (l = 0; l < 5; l++)
+
+            //Задание 2.2
+
+            /*  int[] arr1 = new int[5];
+              int l;
+
+              Console.WriteLine("Enter five elements of the array: ");
+                      for (l = 0; l < 5; l++)
+                      {
+                          arr[l] = Convert.ToInt32(Console.ReadLine());
+                      }
+
+                      Console.WriteLine("\nYour array");
+                      for (l = 0; l < 5; l++)
+                      {
+                          Console.WriteLine(arr1[l]);
+                      }
+
+                      Console.WriteLine("\nNew array in reverse order : ");
+                      for (l = 4; l >= 0; l--)
+                      {
+                          Console.WriteLine(arr1[l]);
+                      }
+                      Console.ReadKey();
+  */
+            Console.Write("Введите размер массива: ");
+            int arrN = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[arrN];
+            int[] arr_rev = new int[arrN];
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(arr[l]);
+                Console.Write($"Введите элемент массива индекса {i + 1}: ");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("");
+            int j = array.Length - 1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                arr_rev[i] = array[j];
+                j--;
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"Элемент инвертированного массива индекса {i + 1}: ");
+                Console.WriteLine(arr_rev[i]);
+            }
+            Console.WriteLine("");
+
+
+
+            //Задание 2.3
+
+            Console.Write("Введите размер массива: ");
+            int N1 = Convert.ToInt32(Console.ReadLine());
+            int[] arr3 = new int[N];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr3[i] = i + 1;
+            }
+            Console.WriteLine("Ваш массив: ");
+            for (int i = 0; i < arr3.Length; i++)
+            {
+                Console.Write(arr3[i] + " ");
+            }
+            Console.Write("\nВведите целую переменную count: ");
+            int count = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите целую переменную index (с нуля): ");
+            int index = Convert.ToInt32(Console.ReadLine());
+            int[] new_arr = new int[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                if (i + index >= N1)
+                {
+                    new_arr[i] = 1;
+                    continue;
+                }
+                new_arr[i] = arr3[i + index];
+            }
+            Console.WriteLine("Новый массив: ");
+            for (int i = 0; i < new_arr.Length; i++)
+            {
+                Console.Write(new_arr[i] + " ");
             }
 
-            Console.WriteLine("\nNew array in reverse order : ");
-            for (l = 4; l >= 0; l--)
-            {
-                Console.WriteLine(arr[l]);
-            }
             Console.ReadKey();
 
-                     
-
-                }
+        }
     }
 }

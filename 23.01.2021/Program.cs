@@ -17,19 +17,33 @@ namespace _23._01._2021
             for (int i = a_1 + 1; i < b_1; i++)
             {
                 sum += i;
+               
             }
-            Console.WriteLine(sum);
-            Console.WriteLine();
+            string comma = "";
+            if (a_1 + 1 != b_1)
+            {
+                Console.WriteLine($"Нечетные числа между {a_1} и {b_1}:");
+                for (int i = a_1 + 1; i <= b_1 - 1; i++)
+                {
+                    if (i % 2 == 1)
+                    {
+                       comma += i + ",";
+                    }
+                }
+                comma = comma.Remove(comma.Length - 1, 1);
+                Console.WriteLine(comma);
+            }
+            else
+            {
+                Console.WriteLine($"Нечетные между {a_1} и {b_1} нет чисел");
+            }
 
-            // B
-            Console.WriteLine("Введите первое число");
-            int A = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int B = Convert.ToInt32(Console.ReadLine());
-            for (int i = A + 1 % 2 == 1 ? A + 1 : A + 2; i < B; i = i + 2)
-                Console.Write(i);
+            Console.WriteLine($"Сумма между числами {a_1} и {b_1}: {sum}");
+
             Console.WriteLine();
-            Console.WriteLine();
+           
+
+            
 
 
             //Задание 1.2
@@ -131,7 +145,7 @@ namespace _23._01._2021
                     k++;
                 }
                 string months;
-                if (k == 1)
+                if (k == 1) 
                 {
                     months = "месяц";
                 }
@@ -144,7 +158,7 @@ namespace _23._01._2021
                     months = "месяцев";
                 }
                 Console.WriteLine($"\nРазмер вклада превысит 1100 руб. за {k} {months}");
-                Console.WriteLine($"Итоговый размер вклада: {s} руб.\n");
+                Console.WriteLine($"Итоговый размер вклада: {sum1} руб.\n");
             }
 
 
@@ -165,7 +179,7 @@ namespace _23._01._2021
                 {
                     max = Math.Max(max, arr[i]);
                     min = Math.Min(min, arr[i]);
-                    sum += arr[i];
+                    sum2 += arr[i];
                 }
                 double aver = Convert.ToDouble(sum2) / Convert.ToDouble(arr.Length);
                 int cnt = 0;
@@ -201,28 +215,7 @@ namespace _23._01._2021
 
             //Задание 2.2
 
-            /*  int[] arr1 = new int[5];
-              int l;
-
-              Console.WriteLine("Enter five elements of the array: ");
-                      for (l = 0; l < 5; l++)
-                      {
-                          arr[l] = Convert.ToInt32(Console.ReadLine());
-                      }
-
-                      Console.WriteLine("\nYour array");
-                      for (l = 0; l < 5; l++)
-                      {
-                          Console.WriteLine(arr1[l]);
-                      }
-
-                      Console.WriteLine("\nNew array in reverse order : ");
-                      for (l = 4; l >= 0; l--)
-                      {
-                          Console.WriteLine(arr1[l]);
-                      }
-                      Console.ReadKey();
-  */
+  
             Console.Write("Введите размер массива: ");
             int arrN = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[arrN];
